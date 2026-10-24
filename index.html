@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Counterbuild</title>
+<meta name="description" content="Counterbuild: a free League of Legends companion that explains which item to build instead of which, and why.">
+<style>
+  :root {
+    --surface: #0F1115; --surface-raised: #171A20; --hairline: #262B33;
+    --text: #F2F4F7; --muted: #9AA3AF; --accent: #2DD4BF; --accent-ink: #0F1115;
+    --gain: #4ADE80; --loss: #FCA5A5; --warn: #FBBF24;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--surface); }
+  body {
+    margin: 0; background: var(--surface); color: var(--text);
+    font: 16px/1.6 "Segoe UI", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+  header { border-bottom: 1px solid var(--hairline); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
+  .logo span { color: var(--accent); }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 20px; font-size: 14px; }
+  nav a:hover { color: var(--text); }
+  .hero { padding: 72px 0 48px; }
+  .eyebrow { color: var(--accent); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  h1 { font-size: clamp(32px, 6vw, 48px); line-height: 1.1; margin: 12px 0 16px; letter-spacing: -0.02em; }
+  .lead { color: var(--muted); font-size: 18px; max-width: 620px; margin: 0; }
+  .status { display: inline-block; margin-top: 24px; padding: 6px 12px; border: 1px solid var(--hairline); border-radius: 6px; color: var(--warn); font-size: 13px; }
+  section { padding: 40px 0; border-top: 1px solid var(--hairline); }
+  h2 { font-size: 22px; margin: 0 0 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .tile { background: var(--surface-raised); border: 1px solid var(--hairline); border-radius: 6px; padding: 20px; }
+  .tile h3 { margin: 0 0 8px; font-size: 16px; }
+  .tile p { margin: 0; color: var(--muted); font-size: 15px; }
+  .card {
+    background: var(--surface-raised); border: 1px solid var(--hairline); border-radius: 6px;
+    padding: 16px; max-width: 420px; font-size: 14px; font-variant-numeric: tabular-nums;
+  }
+  .card .title { color: var(--accent); font-weight: 600; font-size: 15px; margin-bottom: 10px; }
+  .card .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; margin: 10px 0 4px; }
+  .card .gain { color: var(--gain); }
+  .card .loss { color: var(--loss); }
+  .card .note { color: var(--muted); font-size: 12px; margin-top: 12px; }
+  ul.plain { margin: 0; padding-left: 20px; color: var(--muted); }
+  ul.plain li { margin: 6px 0; }
+  ul.plain strong { color: var(--text); font-weight: 600; }
+  footer { border-top: 1px solid var(--hairline); padding: 32px 0 48px; color: var(--muted); font-size: 13px; }
+  footer p { margin: 8px 0; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="logo">Counter<span>build</span></div>
+    <nav><a href="#how">How it works</a><a href="#data">Data &amp; privacy</a><a href="#contact">Contact</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="eyebrow">League of Legends companion · Windows</div>
+    <h1>Build for the game you're in,<br>not the average game.</h1>
+    <p class="lead">Counterbuild shows per-role meta builds, runes and counter picks, and explains when an item swap makes sense against the team you're actually facing: what you gain, what you give up, and why.</p>
+    <div class="status">In development · closed beta planned · free tier always available</div>
+  </div>
+
+  <section id="how">
+    <h2>How it works</h2>
+    <div class="grid">
+      <div class="tile"><h3>Meta builds</h3><p>Champion and role pages with tier lists, core items, item order and rune pages, computed from aggregated ranked matches.</p></div>
+      <div class="tile"><h3>Counter picks</h3><p>In champion select, suggestions against your likely lane opponent and both team compositions. Nothing is picked for you.</p></div>
+      <div class="tile"><h3>Explained item choices</h3><p>A small window can highlight an item decision with options and the mechanical reason behind it. You decide; nothing is bought or applied automatically.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What an item suggestion looks like</h2>
+    <div class="card" aria-label="Example item suggestion">
+      <div class="title">Consider: Mortal Reminder · or keep Lord Dominik's Regards</div>
+      <div class="label">What you gain</div>
+      <div class="gain">+ Grievous Wounds on the enemy team's main healer</div>
+      <div class="gain">+ 300 gold cheaper than the planned item</div>
+      <div class="label">What you give up</div>
+      <div class="loss">− Some armor penetration against their two tanks</div>
+      <div class="label">Now or later?</div>
+      <div>Executioner's Calling (800 g) applies the same effect earlier.</div>
+      <div class="note">Based only on information visible in your own game. No win rates are shown during a match.</div>
+    </div>
+  </section>
+
+  <section id="data">
+    <h2>Data &amp; privacy</h2>
+    <ul class="plain">
+      <li><strong>Riot Games API:</strong> ACCOUNT-V1, SUMMONER-V4, LEAGUE-V4 and MATCH-V5 (matches and timelines) are used on our server to compute aggregate statistics (EUW, ranked solo queue). Only aggregates are published; no individual player data is displayed.</li>
+      <li><strong>No player identifiers published:</strong> published datasets contain no PUUIDs or Riot IDs.</li>
+      <li><strong>On your computer:</strong> the desktop app reads the local League client and the local Live Client Data API only on your machine. It does not send your game data anywhere.</li>
+      <li><strong>Game integrity:</strong> no enemy cooldown or timer tracking, no hidden information, no automation of game decisions. Rune and item-set imports happen only when you click.</li>
+      <li><strong>Usage analytics:</strong> off by default; optional and opt-in.</li>
+      <li><strong>API key:</strong> stays on our server and is never shipped in the app.</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="lead" style="font-size:16px">Questions about the product or how it uses Riot data: <a href="https://github.com/aturkkan94">github.com/aturkkan94</a></p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Counterbuild isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
+    <p>© 2026 Counterbuild</p>
+  </div>
+</footer>
+</body>
+</html>
